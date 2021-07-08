@@ -1,5 +1,6 @@
-package com.vladveretilnyk.controllers;
+package com.vladveretilnyk.controller;
 
+import com.vladveretilnyk.view.Message;
 import com.vladveretilnyk.view.View;
 
 import java.util.Scanner;
@@ -13,12 +14,12 @@ public class ValidInputController {
         this.scanner = scanner;
     }
 
-    public String inputValidString(String message, String regex) {
+    public String inputValidString(Message message, String pattern) {
         String userInput;
         view.printInputRequestMessage(message);
 
-        while (!(scanner.hasNext() && (userInput = scanner.next()).matches(regex))) {
-            view.printInputWrongMessage(message);
+        while (!(scanner.hasNext() && (userInput = scanner.next()).matches(pattern))) {
+            view.printWrongInputMessage(message);
         }
 
         return userInput;
