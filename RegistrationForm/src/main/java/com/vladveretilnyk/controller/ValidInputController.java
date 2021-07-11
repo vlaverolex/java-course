@@ -14,12 +14,13 @@ public class ValidInputController {
         this.scanner = scanner;
     }
 
-    public String inputValidString(Message message, String pattern) {
+    public String inputValidString(String message, String pattern) {
         String userInput;
-        view.printInputRequestMessage(message);
+        view.printMessage(message);
 
         while (!(scanner.hasNext() && (userInput = scanner.next()).matches(pattern))) {
-            view.printWrongInputMessage(message);
+            view.printMessage(Message.WRONG_INPUT_WARNING.getMessage());
+            view.printMessage(message);
         }
 
         return userInput;

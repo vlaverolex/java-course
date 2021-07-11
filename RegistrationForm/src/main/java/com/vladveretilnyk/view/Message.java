@@ -2,20 +2,20 @@ package com.vladveretilnyk.view;
 
 public enum Message {
     REGISTRATION_START("registration.start"),
-    REQUEST_NAME("request.name"),
-    REQUEST_NICKNAME("request.nickname"),
-    WRONG_INPUT("wrong.input"),
-    USER_EXISTS("user.exists"),
+    INPUT_NAME_REQUEST("input.name.request"),
+    INPUT_NICKNAME_REQUEST("input.nickname.request"),
+    WRONG_INPUT_WARNING("wrong.input.warning"),
     NEW_NOTE_ASK("new.note.ask"),
     REGISTRATION_END("registration.end");
 
-    private final String value;
 
-    Message(String value) {
-        this.value = value;
+    private String message;
+
+    Message(String message) {
+        this.message = message;
     }
 
-    public String value() {
-        return value;
+    public String getMessage() {
+        return View.messageBundle.getString(message);
     }
 }
