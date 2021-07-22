@@ -8,8 +8,7 @@ public class Model {
     private final Map<Integer, Integer> countingDigits = new HashMap<>();
 
     public void add(int number) {
-        countingDigits.put(number, countingDigits.get(number) == null ?
-                1 : countingDigits.get(number) + 1);
+        countingDigits.put(number, countingDigits.getOrDefault(number, 0) + 1);
     }
 
     public void add(List<Integer> list) {
